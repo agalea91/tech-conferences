@@ -132,7 +132,83 @@ A few laughs but overall pretty serious talk. I wish he presented the [walrus op
 
 ### Omayeli Arenyeka: Building a Gendered Dictionary
 
+Very cool talk about the speakers journey of this project. 
+
+Good subtle reminder in here to use system variables to store API keys (e.g. `os.environ`).
+
+Neat API for doing reverse dictionary lookups, where you find words that have a given word in the definition (I missed the website :( but check out the talk video for this).
+
+Neat use of BeautifulSuop API: you can do `soup.find('td > a')` to find all links that are children of `td`! ([another example here](https://stackoverflow.com/a/49968385/3511819))
+
+
 ### Andy Fundinger: A Taxonomy of Decorators: A-E
+
+Decorators can be applied to classes as well as functions.
+
+[Talk notes](https://github.com/bloomberg/decorator-taxonomy) are very good to reference for decorator basics e.g. decorators that can take arguments.
+
+You can use classes to write decorators!!!
+
+```
+import random
+
+class trace_it:
+    def __init__(self, func):
+        self.func = func
+    def __call__(self, *args, **kwargs):
+        print(args, kwargs)
+        return self.func(*args, **kwargs)
+        
+@trace_it
+def rand(min_val, max_val):
+    return random.randint(min_val, max_val)
+rand(10,30)
+
+>>> (10, 30) {}
+```
+
+A possilbe use case is for retrying functions (a "control flow" decorator) e.g.
+
+```
+def infinite_retry(func):
+    def wrapper(*args, **kwargs):
+        while True:
+            try:
+                return func(*args, **kwargs)
+            except RuntimeError as e:
+                print(e)
+    return wrapper
+
+@infinite_retry
+def random_fail(max_value):
+    ret = random.randint(-100, max_value)
+    if ret<0:
+        raise RuntimeError("Invalid negative number {ret}".format(ret=ret))
+    return ret
+
+random_fail(10)
+```
+
+Descriptive decorators could be used to label / bin functions somehow. E.g.
+
+```
+import warnings 
+
+to_qa=[]
+def qa(func):
+    to_qa.append(func.__name__)
+    return func
+
+@qa
+def new_code(): pass
+
+@qa
+def refactored_code(): pass
+
+def well_trusted_code(): pass
+```
+
+To quickly set up caching on a function use [functools.lru_cache](https://docs.python.org/3/library/functools.html#functools.lru_cache)!!!
 
 
 ### Chirag Shah: Understanding Multithreading
