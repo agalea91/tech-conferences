@@ -7,8 +7,6 @@
 
 Every language has a bunch of 'wat'? But usually there is a logical 'why'. Lots of laughs in this one
 
-
-
 ### Al Sweigart: The Amazing Mutable, Immutable Tuple
 
 Every object has an [*idntity, type and value*](https://docs.python.org/3/reference/datamodel.html)
@@ -29,7 +27,7 @@ The object types must stay the same however, and you can't change the integer va
 
 ### Jigyasa Grover: Perceiving Python Programming Paradigms
 
-Pretty boring talk. Had a good cringe when she used `list` as a variable name.
+Pretty boring talk. Had a good cringe when the speaker used `list` as a variable name.
 
 ### Iyanuoluwa Ajao: Type Hints: Adding Types to Legacy Code
 
@@ -51,6 +49,15 @@ test_get():
     """
 ```
 
+Speaker used some really neat type hinting. [For example](https://stackoverflow.com/questions/24853923/python-3-annotations-type-hinting-a-list-of-a-specified-type-pycharm):
+
+```
+from typing import List
+
+def my_func(l: List[int]):
+    pass
+```
+
 ### Lightning Talks
 
 ```
@@ -61,6 +68,8 @@ test_get():
 ```
 
 ### Norah Klintberg Sakal: Guide to your own artificial intelligence application in 3 easy steps
+
+This is my favorite talk so far, very good slides and cool project.
 
 For image classification, you can pick up a pretrained CNN (e.g. VGG16) off the shelf (this knows smart convolutions to interpret the images) and train a model to classify your specific use case.
 
@@ -74,7 +83,7 @@ For image classification, you can pick up a pretrained CNN (e.g. VGG16) off the 
 
 ### Ania Kapuścińska: Lint your code responsibly!
 
-Snoozer (for me). But lots of interesting things that you can do with code linting.
+Lots of interesting things that you can do with code linting. The speaker went through a variety of options for linting with python and custom linting. If you're into that sort of thing then this would be a great talk to check out.
 
 ### Maria McKinley: Hunting the bugs
 
@@ -102,8 +111,6 @@ Before the postmordem, someone should fill in the outline of the doc: date, summ
 
 During the meeting, focus on working through the timeline (how the error happened from dev to trigger) in as much detail as possilbe.
 
-
-
 ### Hayley Denbraver: Recursion, Fractals, and the Python Turtle Module
 
 Python [turtle module](https://docs.python.org/3.3/library/turtle.html?highlight=turtle) is pretty neat. You can make pretty things. But it is pretty useless though.
@@ -111,20 +118,19 @@ Python [turtle module](https://docs.python.org/3.3/library/turtle.html?highlight
 
 ## Day 2 — Sunday, 24 February 2019
 
-
-
 ### Nina Zakharenko: Light Up Your Life - With Python and LEDs!
 
-
-
+Using micropython for coding little adafruit LEDs. Cool live demo!
 
 ### Dustin Ingram: Data Protection for Developers: Past, Present, and Future
 
+Companies must inform users that their data is being collected, and how it's being used.
+
+Data breaches must be reported within 72 hours of the incident - or face fines.
+
+A few laughs but overall pretty serious talk. I wish he presented the [walrus operator](https://www.youtube.com/watch?v=mHOgGuALfNc) again instead!
 
 ### Omayeli Arenyeka: Building a Gendered Dictionary
-
-
-
 
 ### Andy Fundinger: A Taxonomy of Decorators: A-E
 
