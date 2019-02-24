@@ -213,10 +213,15 @@ To quickly set up caching on a function use [functools.lru_cache](https://docs.p
 
 ### Chirag Shah: Understanding Multithreading
 
+In python, the GIL makes *multithreading* really tough
 
+Notes on the GIL:
+ - Everything in python is an object in C (PyObject)
+ - Variables are references in memory
+ - Without the GIL these references may overlap (???)
+ - Using threads holds the GIL while running and releases it when doing i/o, number crunching, etc...
 
-
-
+These complications are seen as an issue by the community and they are looking to either optimize or remove the GIL.
 
 ### Kyungyun Lee: So tell me, what is your musical taste?
 
